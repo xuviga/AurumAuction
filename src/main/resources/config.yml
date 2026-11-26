@@ -1,0 +1,124 @@
+# AurumAuction configuration (v0.1.0)
+
+# ru / en - which bundled messages file is copied on first start
+locale: ru
+
+storage:
+  # YAML / SQLITE / MYSQL
+  type: YAML
+  autosave-seconds: 60
+  # import lots.yml into an empty SQL database on first start, then rename it
+  migrate-yaml: true
+  sqlite:
+    file: lots.db
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: minecraft
+    user: root
+    password: ""
+    table-prefix: ah_
+
+economy:
+  # VAULT only. The plugin never depends on Vault at compile time.
+  mode: VAULT
+  currency-format: "#,##0.##"
+
+lots:
+  expire-hours: 48
+  min-price: 1.0
+  max-price: 1000000000.0
+  default-limit: 5
+  max-amount-per-lot: 64
+  allow-shulkers: true
+  tax-percent: 5.0
+  # per-permission-group tax: auction.group.<name>
+  tax-groups:
+    vip: 3.0
+    premium: 1.0
+  # 0 = unlimited active lots on the whole server
+  max-total: 0
+  # require a confirmation click before money is withdrawn
+  buy-confirm: true
+  # delete SOLD/CANCELLED lots older than this (0 = keep forever)
+  retention-days: 30
+  blocked-materials:
+    - BEDROCK
+    - BARRIER
+    - STRUCTURE_BLOCK
+    - STRUCTURE_VOID
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - COMMAND_BLOCK_MINECART
+    - JIGSAW
+    - LIGHT
+    - DEBUG_STICK
+
+search:
+  min-length: 2
+  # how long the GUI waits for a chat input after pressing "Search"
+  input-timeout-seconds: 30
+
+limits:
+  click-cooldown-ms: 300
+  command-cooldown-ms: 500
+  # per-permission-group lot limit: auction.group.<name>
+  groups:
+    vip: 15
+    premium: 30
+
+logging:
+  transactions: true
+
+payouts:
+  # retry interval for payouts Vault refused (offline economy errors)
+  retry-seconds: 300
+
+bids:
+  enabled: true
+  min-increment: 1.0
+  min-increment-percent: 5.0
+  # anti-snipe: extend the lot when a bid arrives in the last N seconds
+  extend-seconds: 60
+  default-hours: 24
+  max-hours: 168
+
+auto-buy:
+  # the server buys stale fixed-price lots at a discount
+  enabled: true
+  after-hours: 168
+  percent: 70.0
+  check-seconds: 3600
+
+claims:
+  # deliver won items automatically on join when possible
+  auto-claim: true
+
+notifications:
+  enabled: true
+
+history:
+  # entries kept per player (newest first)
+  size: 200
+  top-size: 10
+
+watch:
+  max: 5
+
+multi-server:
+  # requires storage.type: MYSQL; lots are shared instantly, watchlist notifications are polled
+  enabled: false
+  # unique per server, 0-1023 (used for snowflake lot ids)
+  server-id: 1
+  sync-seconds: 5
+
+bedrock:
+  # trim item lore for Floodgate/Geyser players (0 = keep all lines)
+  max-lore-lines: 8
+
+# how often closed lots are purged according to lots.retention-days
+retention-check-seconds: 3600
+
+# how often expired lots are moved to the owner's "expired" section
+expire-check-seconds: 60

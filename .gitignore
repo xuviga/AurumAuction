@@ -1,0 +1,13 @@
+target/
+.idea/
+*.iml
+*.ipr
+*.iws
+run/
+logs/
+node_modules/
+tools/e2e/node_modules/
+.DS_Store
+Thumbs.db
+build.out
+build.err

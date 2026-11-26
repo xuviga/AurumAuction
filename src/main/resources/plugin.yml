@@ -1,0 +1,42 @@
+name: AurumAuction
+version: 0.7.0
+main: com.xuvigan.aurumauction.AurumAuction
+api-version: 1.16
+folia-supported: true
+author: XuViGaN
+description: Zero-dependency Russian auction house for Paper 1.16.1 - 1.21.x and 26.x
+website: https://github.com/xuviga/AurumAuction
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+commands:
+  ah:
+    description: AurumAuction main command
+    usage: /ah help
+    aliases:
+      - auction
+      - аукцион
+
+permissions:
+  auction.use:
+    description: Open the auction house
+    default: true
+  auction.sell:
+    description: Put items on the auction
+    default: true
+  auction.buy:
+    description: Buy items from the auction
+    default: true
+  auction.tax.bypass:
+    description: Sell without the sales tax
+    default: false
+  auction.admin:
+    description: Administrative access (/ah reload)
+    default: op
+  auction.bypass.blocked:
+    description: Allow listing materials from the blocked list
+    default: false
+  auction.limit.5:
+    description: Example lot limit grant (use auction.limit.<n>)
+    default: false

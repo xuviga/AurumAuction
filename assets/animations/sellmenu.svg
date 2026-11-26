@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t">
+  <title id="t">Sell-menu: выставление предмета из инвентаря</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16202f"/><stop offset="1" stop-color="#080d15"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7cf6a"/><stop offset="1" stop-color="#d6931d"/></linearGradient>
+    <linearGradient id="slot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2636"/><stop offset="1" stop-color="#121a26"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <style>
+    .toast { opacity: 0; animation: toast 10s ease infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes toast { 0%,48% { opacity: 0; transform: translateY(-12px) scale(.96); } 55%,88% { opacity: 1; transform: translateY(0) scale(1); } 94%,100% { opacity: 0; } }
+    .btn { animation: btn 10s ease infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes btn { 0%,34% { filter: none; transform: scale(1); } 44%,52% { filter: drop-shadow(0 0 16px #f2b632); transform: scale(1.05); } 60%,100% { transform: scale(1); } }
+    .price { animation: price 10s ease infinite; }
+    @keyframes price { 0%,30% { opacity: .55; } 40%,100% { opacity: 1; } }
+    .coin { animation: coin 10s ease-in infinite; }
+    @keyframes coin { 0%,62% { opacity: 0; } 64% { opacity: 1; } 86%,100% { opacity: 0; } }
+    .balance { opacity: 0; animation: bal 10s ease infinite; }
+    @keyframes bal { 0%,72% { opacity: 0; transform: translateY(8px); } 78%,96% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1080" cy="110" r="230" fill="#58e296" opacity=".055"/>
+  <circle cx="180" cy="660" r="260" fill="#f2b632" opacity=".05"/>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="46" width="840" height="628" rx="18" fill="#111a27" stroke="#2b3d55" stroke-width="2"/>
+    <rect x="220" y="46" width="840" height="62" rx="18" fill="#182334"/>
+    <rect x="220" y="92" width="840" height="16" fill="#182334"/>
+    <path d="M220 108 H1060" stroke="#2b3d55"/>
+  </g>
+  <text x="254" y="85" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#f2b632">Выставить предмет за <tspan fill="#fff">500 ₽</tspan></text>
+  <g transform="translate(1010 76)">
+    <circle r="15" fill="#223149"/><path d="M-5 -5 L5 5 M5 -5 L-5 5" stroke="#8fa2bb" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <text x="254" y="140" font-family="Segoe UI, Arial" font-size="13" fill="#5f7188">ПОЛОЖИТЕ ОДИН СТАК</text>
+
+  <!-- storage 6x2 -->
+  <g fill="url(#slot)" stroke="#2b3d55">
+    <rect x="428" y="156" width="64" height="64" rx="8"/><rect x="500" y="156" width="64" height="64" rx="8"/><rect x="572" y="156" width="64" height="64" rx="8"/>
+    <rect x="644" y="156" width="64" height="64" rx="8"/><rect x="716" y="156" width="64" height="64" rx="8"/><rect x="788" y="156" width="64" height="64" rx="8"/>
+    <rect x="428" y="228" width="64" height="64" rx="8"/><rect x="500" y="228" width="64" height="64" rx="8"/><rect x="572" y="228" width="64" height="64" rx="8"/>
+    <rect x="644" y="228" width="64" height="64" rx="8"/><rect x="716" y="228" width="64" height="64" rx="8"/><rect x="788" y="228" width="64" height="64" rx="8"/>
+  </g>
+  <rect x="424" y="152" width="72" height="72" rx="10" fill="none" stroke="#f2b632" stroke-width="2" filter="url(#glow)" opacity=".8"/>
+
+  <text x="254" y="352" font-family="Segoe UI, Arial" font-size="13" fill="#5f7188">ИНВЕНТАРЬ</text>
+  <g fill="url(#slot)" stroke="#2b3d55">
+    <rect x="316" y="370" width="64" height="64" rx="8"/><rect x="388" y="370" width="64" height="64" rx="8"/><rect x="460" y="370" width="64" height="64" rx="8"/>
+    <rect x="532" y="370" width="64" height="64" rx="8"/><rect x="604" y="370" width="64" height="64" rx="8"/><rect x="676" y="370" width="64" height="64" rx="8"/>
+    <rect x="748" y="370" width="64" height="64" rx="8"/><rect x="820" y="370" width="64" height="64" rx="8"/><rect x="892" y="370" width="64" height="64" rx="8"/>
+    <rect x="316" y="442" width="64" height="64" rx="8"/><rect x="388" y="442" width="64" height="64" rx="8"/><rect x="460" y="442" width="64" height="64" rx="8"/>
+    <rect x="532" y="442" width="64" height="64" rx="8"/><rect x="604" y="442" width="64" height="64" rx="8"/><rect x="676" y="442" width="64" height="64" rx="8"/>
+    <rect x="748" y="442" width="64" height="64" rx="8"/><rect x="820" y="442" width="64" height="64" rx="8"/><rect x="892" y="442" width="64" height="64" rx="8"/>
+  </g>
+
+  <!-- moving diamond stack -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" dur="10s" repeatCount="indefinite"
+      keyTimes="0;0.18;0.38;1" values="604 370;604 370;428 156;428 156"/>
+    <rect x="0" y="0" width="64" height="64" rx="8" fill="#0f1824" stroke="#f2b632" opacity=".98"/>
+    <path d="M14 46 L26 18 L38 30 L46 22 L54 46 Z" fill="#7cf0b0"/>
+    <text x="56" y="58" text-anchor="end" font-family="Segoe UI, Arial" font-size="12" font-weight="700" fill="#fff">64</text>
+  </g>
+
+  <!-- hint + buttons -->
+  <text x="254" y="536" font-family="Segoe UI, Arial" font-size="13" fill="#8fa2bb">Комиссия: <tspan fill="#e8eef8">5%</tspan> · продавцу: <tspan fill="#58e296">475 ₽</tspan></text>
+
+  <g class="btn">
+    <rect x="690" y="560" width="220" height="52" rx="10" fill="url(#gold)"/>
+    <text x="800" y="593" text-anchor="middle" font-family="Segoe UI, Arial" font-size="17" font-weight="700" fill="#1a1205">Выставить</text>
+  </g>
+  <g>
+    <rect x="926" y="560" width="120" height="52" rx="10" fill="#1a2433" stroke="#ff5c6c" stroke-opacity=".6"/>
+    <text x="986" y="593" text-anchor="middle" font-family="Segoe UI, Arial" font-size="16" font-weight="600" fill="#ff8f98">Отмена</text>
+  </g>
+
+  <!-- toast -->
+  <g class="toast">
+    <rect x="700" y="120" width="330" height="64" rx="12" fill="#0b111a" stroke="#58e296"/>
+    <circle cx="728" cy="152" r="10" fill="#58e296"/>
+    <text x="750" y="146" font-family="Segoe UI, Arial" font-size="14" fill="#7cf0b0">Лот #42 выставлен</text>
+    <text x="750" y="166" font-family="Segoe UI, Arial" font-size="13" fill="#8fa2bb">Diamond ×64 · 500 ₽</text>
+  </g>
+
+  <!-- coins to balance -->
+  <g class="coin">
+    <circle r="6" fill="#f2b632">
+      <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.62;0.8;1" calcMode="linear" path="M800 575 C860 430 830 300 800 220"/>
+    </circle>
+  </g>
+  <g class="coin" style="animation-delay:.12s">
+    <circle r="5" fill="#f7cf6a">
+      <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.64;0.82;1" calcMode="linear" path="M800 575 C850 440 810 320 786 228"/>
+    </circle>
+  </g>
+  <g class="coin" style="animation-delay:.24s">
+    <circle r="4" fill="#d6931d">
+      <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.66;0.84;1" calcMode="linear" path="M800 575 C840 450 800 340 772 236"/>
+    </circle>
+  </g>
+  <g class="balance">
+    <rect x="700" y="196" width="150" height="40" rx="10" fill="#123225" stroke="#58e296"/>
+    <text x="775" y="222" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" font-weight="700" fill="#7cf0b0">+475 ₽</text>
+  </g>
+</svg>

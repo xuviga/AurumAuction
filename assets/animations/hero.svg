@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-labelledby="title desc">
+  <title id="title">AurumAuction — аукцион для Paper и Folia</title>
+  <desc id="desc">Анимированный баннер: иконка, название и ключевые возможности плагина.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#131c2b"/>
+      <stop offset="0.55" stop-color="#0b111a"/>
+      <stop offset="1" stop-color="#070b12"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7cf6a"/>
+      <stop offset="0.5" stop-color="#f2b632"/>
+      <stop offset="1" stop-color="#d6931d"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7cf0b0"/>
+      <stop offset="1" stop-color="#1e9e63"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#2a3a52" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .rise { animation: rise 1.1s cubic-bezier(.2,.8,.25,1) both; }
+    .d1 { animation-delay: .15s; } .d2 { animation-delay: .3s; }
+    .d3 { animation-delay: .45s; } .d4 { animation-delay: .6s; }
+    .d5 { animation-delay: .75s; } .d6 { animation-delay: .9s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: .28; transform: scale(1); } 50% { opacity: .55; transform: scale(1.08); } }
+    @keyframes float { 0%,100% { transform: translateY(0); opacity: .35; } 50% { transform: translateY(-18px); opacity: .85; } }
+    @keyframes draw { from { stroke-dashoffset: 420; } to { stroke-dashoffset: 0; } }
+    @keyframes shine { 0% { transform: translateX(-260px); } 55%,100% { transform: translateX(760px); } }
+    @keyframes gavel { 0%,20% { transform: rotate(-70deg); } 35%,75% { transform: rotate(-38deg); } 88%,100% { transform: rotate(-70deg); } }
+    @keyframes cube { 0%,12% { opacity: 0; transform: translateY(16px) scale(.9); } 30%,100% { opacity: 1; transform: translateY(0) scale(1); } }
+    .glow { animation: pulse 4.5s ease-in-out infinite; transform-origin: 190px 210px; }
+    .p1 { animation: float 6s ease-in-out infinite; } .p2 { animation: float 7.2s ease-in-out infinite .6s; }
+    .p3 { animation: float 8.1s ease-in-out infinite 1.1s; } .p4 { animation: float 6.7s ease-in-out infinite 1.7s; }
+    .line { stroke-dasharray: 420; animation: draw 1.4s ease .9s both; }
+    .shine { animation: shine 6.5s ease-in-out infinite 1.2s; }
+    .gavel { animation: gavel 6s ease-in-out infinite; transform-origin: 255px 190px; }
+    .cube { animation: cube 1.2s ease both .35s; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .rise, .row, .lot, .tip, .toast, .win, .balance, .btn, .bar, .cube, .gavel, .cursor { opacity: 1 !important; transform: none !important; }
+      [style*="animation-delay"] { opacity: 1 !important; }
+    }
+  </style>
+
+  <rect width="1280" height="420" fill="url(#bg)"/>
+  <rect width="1280" height="420" fill="url(#dots)"/>
+  <ellipse class="glow" cx="190" cy="210" rx="170" ry="150" fill="#58e296" opacity=".3" filter="url(#soft)"/>
+
+  <g class="p1"><circle cx="1080" cy="90" r="3" fill="#f2b632"/></g>
+  <g class="p2"><circle cx="1150" cy="300" r="2.4" fill="#58e296"/></g>
+  <g class="p3"><circle cx="980" cy="330" r="2" fill="#5aa9ff"/></g>
+  <g class="p4"><circle cx="1210" cy="170" r="3.2" fill="#f2b632"/></g>
+
+  <!-- icon -->
+  <g class="rise">
+    <rect x="78" y="108" width="224" height="224" rx="46" fill="#0d141f" stroke="url(#gold)" stroke-width="5"/>
+    <rect x="92" y="122" width="196" height="196" rx="36" fill="none" stroke="#f2b632" stroke-opacity=".25" stroke-width="2"/>
+    <g class="cube">
+      <path d="M138 244 L190 220 L242 244 L190 268 Z" fill="#58e296"/>
+      <path d="M138 244 L190 268 L190 328 L138 304 Z" fill="#1e9e63"/>
+      <path d="M242 244 L190 268 L190 328 L242 304 Z" fill="#157a4f"/>
+      <path d="M138 244 L190 220 L242 244 L190 268 Z" fill="none" stroke="#f2b632" stroke-width="2.4"/>
+      <path d="M138 244 L190 268 L190 328 L138 304 Z" fill="none" stroke="#f2b632" stroke-width="2.4"/>
+      <path d="M242 244 L190 268 L190 328 L242 304 Z" fill="none" stroke="#f2b632" stroke-width="2.4"/>
+    </g>
+    <g class="gavel">
+      <rect x="246" y="160" width="16" height="120" rx="7" fill="#d6931d"/>
+      <rect x="206" y="136" width="96" height="38" rx="12" fill="url(#gold)"/>
+      <rect x="214" y="143" width="80" height="10" rx="5" fill="#fff2c9" opacity=".55"/>
+    </g>
+  </g>
+
+  <!-- text -->
+  <g class="rise d1">
+    <text x="352" y="196" font-family="Segoe UI, Arial, sans-serif" font-size="72" font-weight="700" fill="url(#gold)">AurumAuction</text>
+  </g>
+  <g class="rise d2">
+    <text x="354" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#e8eef8">Аукцион для Paper / Folia <tspan fill="#8fa2bb">·</tspan> 1.16.5 – 26.x</text>
+  </g>
+  <g class="rise d3">
+    <path class="line" d="M354 276 H760" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="600">
+    <g class="rise d4">
+      <rect x="354" y="302" width="112" height="40" rx="20" fill="#141f2e" stroke="#f2b632" stroke-opacity=".55"/>
+      <text x="410" y="328" text-anchor="middle" fill="#f2b632">Ставки</text>
+    </g>
+    <g class="rise d5">
+      <rect x="478" y="302" width="94" height="40" rx="20" fill="#141f2e" stroke="#58e296" stroke-opacity=".55"/>
+      <text x="525" y="328" text-anchor="middle" fill="#58e296">SQL</text>
+    </g>
+    <g class="rise d6">
+      <rect x="584" y="302" width="178" height="40" rx="20" fill="#141f2e" stroke="#5aa9ff" stroke-opacity=".55"/>
+      <text x="673" y="328" text-anchor="middle" fill="#5aa9ff">Мультисервер</text>
+    </g>
+    <g class="rise d6">
+      <rect x="774" y="302" width="126" height="40" rx="20" fill="#141f2e" stroke="#f2b632" stroke-opacity=".55"/>
+      <text x="837" y="328" text-anchor="middle" fill="#f2b632">Bedrock</text>
+    </g>
+  </g>
+
+  <!-- mini auction card -->
+  <g class="rise d5" opacity=".96">
+    <rect x="960" y="150" width="236" height="150" rx="16" fill="#16202f" stroke="#2c3d55"/>
+    <rect x="976" y="166" width="44" height="44" rx="8" fill="#0f1824" stroke="#2c3d55"/>
+    <path d="M986 188 L998 176 L1010 188 L998 200 Z" fill="#7cf0b0"/>
+    <text x="1032" y="184" font-family="Segoe UI, Arial" font-size="15" fill="#e8eef8" font-weight="600">Diamond x64</text>
+    <text x="1032" y="204" font-family="Segoe UI, Arial" font-size="13" fill="#8fa2bb">AlexMiner</text>
+    <text x="1032" y="230" font-family="Segoe UI, Arial" font-size="21" font-weight="700" fill="#f2b632">6 400 ₽</text>
+    <g font-family="Segoe UI, Arial" font-size="12" fill="#8fa2bb">
+      <text x="976" y="260">ЛКМ — купить</text>
+      <text x="976" y="278">/ah search diamond</text>
+    </g>
+  </g>
+</svg>

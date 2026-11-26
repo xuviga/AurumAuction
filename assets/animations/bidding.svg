@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t">
+  <title id="t">Аукцион со ставками</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16202f"/><stop offset="1" stop-color="#080d15"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7cf6a"/><stop offset="1" stop-color="#d6931d"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#182334"/><stop offset="1" stop-color="#111a27"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <style>
+    .p1 { animation: p1 9s ease infinite; } .p2 { animation: p2 9s ease infinite; } .p3 { animation: p3 9s ease infinite; }
+    @keyframes p1 { 0%,24% { opacity: 1; } 30%,100% { opacity: 0; } }
+    @keyframes p2 { 0%,24% { opacity: 0; } 30%,48% { opacity: 1; } 54%,100% { opacity: 0; } }
+    @keyframes p3 { 0%,48% { opacity: 0; } 54%,100% { opacity: 1; } }
+    .row { opacity: 0; animation: row .6s ease both; }
+    @keyframes row { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+    .toast { opacity: 0; animation: toast 9s ease infinite; transform-box: fill-box; }
+    @keyframes toast { 0%,26% { opacity: 0; transform: translateY(-14px) scale(.96); } 33%,64% { opacity: 1; transform: translateY(0) scale(1); } 74%,100% { opacity: 0; transform: translateY(-14px) scale(.96); } }
+    .win { opacity: 0; animation: win 9s ease infinite; }
+    @keyframes win { 0%,68% { opacity: 0; transform: scale(.94); } 76%,96% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
+    .btn { animation: btn 9s ease infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes btn { 0%,50% { filter: none; transform: scale(1); } 58%,66% { filter: drop-shadow(0 0 14px #f2b632); transform: scale(1.04); } 74%,100% { transform: scale(1); } }
+    .ring { stroke-dasharray: 502; animation: ring 9s linear infinite; }
+    @keyframes ring { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 502; } }
+    .glow { animation: glow 3.4s ease-in-out infinite; } @keyframes glow { 0%,100% { opacity: .18; } 50% { opacity: .42; } }
+    .cursor { animation: cursor 9s ease-in-out infinite; }
+    @keyframes cursor { 0%,40% { transform: translate(0,0); opacity: 0; } 44% { opacity: 1; } 58%,64% { transform: translate(-6px,-6px); } 72%,100% { transform: translate(-6px,-6px); opacity: 1; } }
+    .rip { animation: rip 9s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes rip { 0%,62% { opacity: 0; transform: scale(.2); } 66% { opacity: .8; transform: scale(.5); } 76%,100% { opacity: 0; transform: scale(1.7); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1060" cy="120" r="240" fill="#f2b632" opacity=".05"/>
+  <circle cx="160" cy="650" r="260" fill="#58e296" opacity=".06"/>
+
+  <!-- left card -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="70" width="470" height="580" rx="18" fill="url(#panel)" stroke="#2b3d55" stroke-width="2"/>
+    <path d="M60 140 H530" stroke="#2b3d55"/>
+  </g>
+  <text x="90" y="112" font-family="Segoe UI, Arial" font-size="18" font-weight="700" fill="#f2b632">Лот #12 · Аукцион</text>
+  <text x="500" y="112" text-anchor="end" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">1 / 1</text>
+
+  <g transform="translate(96 168)">
+    <rect width="96" height="96" rx="12" fill="#0f1824" stroke="#2b3d55"/>
+    <path d="M22 66 L44 26 L58 44 L70 32 L82 66 Z" fill="#7cf0b0"/>
+    <text x="84" y="88" text-anchor="end" font-family="Segoe UI, Arial" font-size="14" font-weight="700" fill="#fff">64</text>
+  </g>
+  <text x="212" y="196" font-family="Segoe UI, Arial" font-size="26" font-weight="700" fill="#e8eef8">Diamond ×64</text>
+  <text x="212" y="222" font-family="Segoe UI, Arial" font-size="15" fill="#8fa2bb">Продавец: <tspan fill="#e8eef8">AlexMiner</tspan></text>
+  <text x="212" y="246" font-family="Segoe UI, Arial" font-size="15" fill="#8fa2bb">Категория: <tspan fill="#e8eef8">Разное</tspan></text>
+
+  <path d="M90 284 H500" stroke="#2b3d55"/>
+  <circle class="glow" cx="200" cy="380" r="104" fill="#f2b632" filter="url(#glow)"/>
+  <circle cx="200" cy="380" r="80" fill="none" stroke="#223149" stroke-width="10"/>
+  <circle class="ring" cx="200" cy="380" r="80" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 200 380)"/>
+  <text x="200" y="384" text-anchor="middle" font-family="Segoe UI, Arial" font-size="26" font-weight="700" fill="#f2b632">00:29</text>
+  <text x="200" y="408" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#8fa2bb">до конца</text>
+
+  <text x="320" y="348" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">Выкуп</text>
+  <text x="320" y="374" font-family="Segoe UI, Arial" font-size="24" font-weight="700" fill="#f2b632">9 000 ₽</text>
+  <text x="320" y="404" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">Мин. шаг: <tspan fill="#e8eef8">300 ₽</tspan></text>
+  <text x="320" y="428" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">Ставок: <tspan fill="#e8eef8">7</tspan></text>
+
+  <rect x="90" y="500" width="410" height="44" rx="12" fill="#101a26" stroke="#2b3d55"/>
+  <text x="106" y="528" font-family="Segoe UI, Arial" font-size="14" fill="#58e296">Anti-snipe: ставка в последние 60 сек продлевает лот</text>
+
+  <text x="90" y="572" font-family="Segoe UI, Arial" font-size="12" fill="#5f7188">ЭСКРОУ</text>
+  <text x="90" y="596" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">Ставка списывается сразу</text>
+  <text x="90" y="618" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">и возвращается, если ставку перебили</text>
+  <!-- right card -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="70" width="660" height="580" rx="18" fill="url(#panel)" stroke="#2b3d55" stroke-width="2"/>
+    <path d="M560 140 H1220" stroke="#2b3d55"/>
+  </g>
+  <text x="590" y="112" font-family="Segoe UI, Arial" font-size="18" font-weight="700" fill="#e8eef8">Ставки</text>
+  <text x="690" y="112" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">эскроу · возврат при перебитии</text>
+
+  <text x="590" y="180" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">Текущая ставка</text>
+  <g font-family="Segoe UI, Arial" font-weight="700" fill="#f2b632">
+    <text class="p1" x="590" y="238" font-size="54">5 000 ₽</text>
+    <text class="p2" x="590" y="238" font-size="54">5 700 ₽</text>
+    <text class="p3" x="590" y="238" font-size="54">6 200 ₽</text>
+  </g>
+  <text x="590" y="264" font-family="Segoe UI, Arial" font-size="14" fill="#8fa2bb">лидирует: <tspan fill="#e8eef8">BuyerOne</tspan> · шаг 300 ₽</text>
+
+  <!-- history -->
+  <g font-family="Segoe UI, Arial">
+    <text x="590" y="304" font-size="13" fill="#5f7188">ИСТОРИЯ СТАВОК</text>
+    <g class="row" style="animation-delay:.2s">
+      <rect x="590" y="316" width="600" height="44" rx="10" fill="#123225" stroke="#1e9e63"/>
+      <circle cx="614" cy="338" r="6" fill="#58e296"/>
+      <text x="632" y="343" font-size="15" fill="#e8eef8" font-weight="600">BuyerOne</text>
+      <text x="760" y="343" font-size="13" fill="#8fa2bb">лидирует</text>
+      <text x="1168" y="343" text-anchor="end" font-size="16" font-weight="700" fill="#58e296">6 200 ₽</text>
+    </g>
+    <g class="row" style="animation-delay:.4s">
+      <rect x="590" y="368" width="600" height="44" rx="10" fill="#101a26" stroke="#223149"/>
+      <circle cx="614" cy="390" r="5" fill="#5f7188"/>
+      <text x="632" y="395" font-size="15" fill="#c8d2e2">BuyerTwo</text>
+      <text x="1168" y="395" text-anchor="end" font-size="15" fill="#8fa2bb">5 700 ₽</text>
+    </g>
+    <g class="row" style="animation-delay:.6s">
+      <rect x="590" y="420" width="600" height="44" rx="10" fill="#101a26" stroke="#223149"/>
+      <circle cx="614" cy="442" r="5" fill="#5f7188"/>
+      <text x="632" y="447" font-size="15" fill="#c8d2e2">BuyerOne</text>
+      <text x="1168" y="447" text-anchor="end" font-size="15" fill="#8fa2bb">5 000 ₽</text>
+    </g>
+  </g>
+
+  <!-- bid input -->
+  <rect x="590" y="500" width="300" height="52" rx="10" fill="#0c141e" stroke="#2b3d55"/>
+  <text x="608" y="533" font-family="Segoe UI, Arial" font-size="20" font-weight="700" fill="#e8eef8">7 500</text>
+  <text x="868" y="533" text-anchor="end" font-family="Segoe UI, Arial" font-size="15" fill="#8fa2bb">₽</text>
+  <g class="btn">
+    <rect x="906" y="500" width="284" height="52" rx="10" fill="url(#gold)"/>
+    <text x="1048" y="533" text-anchor="middle" font-family="Segoe UI, Arial" font-size="17" font-weight="700" fill="#1a1205">Сделать ставку</text>
+  </g>
+
+  <!-- toast -->
+  <g class="toast">
+    <rect x="820" y="8" width="380" height="58" rx="12" fill="#3a1118" stroke="#ff5c6c" stroke-width="1.5"/>
+    <circle cx="846" cy="37" r="9" fill="#ff5c6c"/>
+    <text x="868" y="34" font-family="Segoe UI, Arial" font-size="14" fill="#ffb3ba">Вашу ставку перебили</text>
+    <text x="868" y="52" font-family="Segoe UI, Arial" font-size="13" fill="#e8eef8">новая ставка: 6 200 ₽</text>
+  </g>
+
+  <g class="win">
+    <rect x="906" y="596" width="284" height="42" rx="10" fill="#123225" stroke="#58e296"/>
+    <text x="1048" y="623" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" font-weight="700" fill="#7cf0b0">Вы лидируете</text>
+  </g>
+
+  <g transform="translate(1150 552)">
+    <g class="cursor">
+      <path d="M0 0 L0 30 L8 23 L14 38 L21 35 L15 21 L26 20 Z" fill="#fff" stroke="#0b111a" stroke-width="1.5"/>
+      <circle class="rip" cx="-8" cy="-6" r="20" fill="none" stroke="#f2b632" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

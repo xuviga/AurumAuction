@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AurumAuction — анимации для страницы ресурса</title>
+<style>
+  :root {
+    --bg: #070b12;
+    --panel: #111a27;
+    --line: #24344a;
+    --text: #e8eef8;
+    --muted: #8fa2bb;
+    --gold: #f2b632;
+    --green: #58e296;
+    --blue: #5aa9ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(242,182,50,.10), transparent 60%),
+      radial-gradient(900px 600px at 95% 8%, rgba(88,226,150,.08), transparent 60%),
+      radial-gradient(800px 600px at 50% 110%, rgba(90,169,255,.07), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 56px 24px 80px; }
+  header { display: flex; gap: 22px; align-items: flex-start; margin-bottom: 42px; }
+  .mark {
+    width: 86px; height: 86px; flex: 0 0 auto; border-radius: 22px;
+    background: linear-gradient(160deg, #182334, #0c131d);
+    border: 2px solid rgba(242,182,50,.75);
+    display: grid; place-items: center;
+    box-shadow: 0 18px 44px rgba(0,0,0,.5), 0 0 32px rgba(242,182,50,.12);
+  }
+  .mark svg { width: 46px; height: 46px; }
+  h1 { margin: 2px 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.5px; }
+  h1 span { color: var(--gold); }
+  .lead { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 720px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .badge {
+    font-size: 12px; font-weight: 700; letter-spacing: .3px; padding: 6px 12px;
+    border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
+    background: rgba(17,26,39,.7);
+  }
+  .badge.gold { color: var(--gold); border-color: rgba(242,182,50,.45); }
+  .badge.green { color: var(--green); border-color: rgba(88,226,150,.4); }
+  .badge.blue { color: var(--blue); border-color: rgba(90,169,255,.4); }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+  .card {
+    background: linear-gradient(180deg, rgba(24,35,52,.92), rgba(17,26,39,.92));
+    border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+    box-shadow: 0 22px 60px rgba(0,0,0,.45);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(242,182,50,.5); box-shadow: 0 30px 70px rgba(0,0,0,.55); }
+  .card.wide { grid-column: 1 / -1; }
+  .card .head { display: flex; align-items: baseline; gap: 12px; padding: 18px 22px 12px; }
+  .card .head b { font-size: 16px; }
+  .card .head span { color: var(--muted); font-size: 13px; }
+  .card .head code {
+    margin-left: auto; font-size: 11px; color: #5f7188;
+    font-family: Consolas, monospace; letter-spacing: .2px;
+  }
+  .shot { display: block; background: #080d15; border-top: 1px solid rgba(36,52,74,.7); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .foot { padding: 12px 22px 18px; color: #5f7188; font-size: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .foot a { color: var(--muted); text-decoration: none; border-bottom: 1px dashed rgba(143,162,187,.35); }
+  .foot a:hover { color: var(--gold); border-color: var(--gold); }
+
+  .live { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font-size: 12px; font-weight: 700; }
+  .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+
+  footer { margin-top: 46px; padding-top: 22px; border-top: 1px solid rgba(36,52,74,.8); color: #5f7188; font-size: 13px; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  footer b { color: var(--muted); font-weight: 600; }
+  @media (max-width: 920px) { .grid { grid-template-columns: 1fr; } header { flex-direction: column; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 44 L64 30 L96 44 L64 58 Z" fill="#58e296"/>
+        <path d="M32 44 L64 58 L64 94 L32 80 Z" fill="#1e9e63"/>
+        <path d="M96 44 L64 58 L64 94 L96 80 Z" fill="#157a4f"/>
+        <g fill="none" stroke="#f2b632" stroke-width="3">
+          <path d="M32 44 L64 30 L96 44 L64 58 Z"/>
+          <path d="M32 44 L64 58 L64 94 L32 80 Z"/>
+          <path d="M96 44 L64 58 L64 94 L96 80 Z"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <h1>AurumAuction <span>— живые SVG</span></h1>
+      <p class="lead">
+        Анимированные сцены для страницы ресурса на spigotmc.ru: без видео, без гифок —
+        один лёгкий файл на сцену, чёткий текст на любом экране и корректное поведение
+        при <code>prefers-reduced-motion</code>.
+      </p>
+      <div class="badges">
+        <span class="badge gold">v0.7.0</span>
+        <span class="badge">Paper / Purpur / Folia</span>
+        <span class="badge">1.16.5 – 26.x</span>
+        <span class="badge green">SQLite / MySQL</span>
+        <span class="badge blue">Bedrock</span>
+        <span class="live" style="margin-left:6px"><i></i>анимация включена</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card wide">
+      <div class="head"><b>Обложка</b><span>шапка страницы и README</span><code>hero.svg · 1280×420</code></div>
+      <div class="shot"><img src="hero.svg" alt="Анимированный баннер AurumAuction" width="1280" height="420"></div>
+      <div class="foot"><span>Появление элементов, парящие частицы, качающийся молоток.</span><a href="hero.svg">открыть SVG</a></div>
+    </section>
+
+    <section class="card wide">
+      <div class="head"><b>Главное меню</b><span>сетка лотов, категории, сортировка, подсказка</span><code>gui.svg · 1280×720</code></div>
+      <div class="shot"><img src="gui.svg" alt="Главное меню аукциона с подсказкой лота" width="1280" height="720"></div>
+      <div class="foot"><span>Лоты появляются каскадом, тултип подъезжает к курсору, кнопка сортировки подсвечивается.</span><a href="gui.svg">открыть SVG</a></div>
+    </section>
+
+    <section class="card">
+      <div class="head"><b>Ставки</b><span>эскроу, история, анти-снайп</span><code>bidding.svg</code></div>
+      <div class="shot"><img src="bidding.svg" alt="Ставки на лот: текущая цена, история и поле ставки" width="1280" height="720" loading="lazy"></div>
+      <div class="foot"><span>Цена растёт, тосты перебития и лидерства сменяют друг друга.</span><a href="bidding.svg">открыть SVG</a></div>
+    </section>
+
+    <section class="card">
+      <div class="head"><b>Sell-menu</b><span>выставление стака из инвентаря</span><code>sellmenu.svg</code></div>
+      <div class="shot"><img src="sellmenu.svg" alt="Меню выставления предмета за 500 рублей" width="1280" height="720" loading="lazy"></div>
+      <div class="foot"><span>Стаж перетаскивается в слот, монеты летят к продавцу, налог считается на месте.</span><a href="sellmenu.svg">открыть SVG</a></div>
+    </section>
+
+    <section class="card">
+      <div class="head"><b>История и топ</b><span>сделки, оборот, лидеры</span><code>history.svg</code></div>
+      <div class="shot"><img src="history.svg" alt="История сделок и топ продавцов" width="1280" height="720" loading="lazy"></div>
+      <div class="foot"><span>Строки въезжают по очереди, полосы рейтинга заполняются от большего к меньшему.</span><a href="history.svg">открыть SVG</a></div>
+    </section>
+
+    <section class="card wide">
+      <div class="head"><b>Сеть и инфраструктура</b><span>Paper, Folia, Bedrock, SQL</span><code>infra.svg · 1280×720</code></div>
+      <div class="shot"><img src="infra.svg" alt="Схема: серверы, ядро аукциона и хранилище" width="1280" height="720" loading="lazy"></div>
+      <div class="foot"><span>Пакеты данных бегут по связям, ядро пульсирует, кольцо вращается.</span><a href="infra.svg">открыть SVG</a></div>
+    </section>
+  </div>
+
+  <footer>
+    <span><b>AurumAuction</b> · анимации собраны вручную в SVG + CSS, без внешних библиотек и шрифтов.</span>
+    <span>Файлы: <b>assets/animations/*.svg</b></span>
+  </footer>
+</div>
+</body>
+</html>

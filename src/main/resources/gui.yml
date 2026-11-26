@@ -1,0 +1,112 @@
+# Auction GUI layout. Slots are absolute (rows * 9).
+main:
+  title: "&8Аукцион &7— &f%page%&7/&f%pages% &8(&7%total%&8)"
+  rows: 6
+
+lot-lore:
+  - "&8#%id% &7• &f%category%"
+  - ""
+  - "&7Продавец: &f%seller%"
+  - "&7Цена: &6%price% &8(&7%unit% &7за шт.&8)"
+  - "&7Осталось: &f%time%"
+  - ""
+
+shulker-lore:
+  - ""
+  - "&8Содержимое:"
+  - "&7%contents%"
+
+bid-lore:
+  - ""
+  - "&8• &eАукцион"
+  - "&7Ставок: &f%bids%"
+  - "&7Текущая ставка: &6%price%"
+  - "&7Выкуп: &6%buyout%"
+  - "&e/ah bid %id% <сумма>"
+
+buttons:
+  previous:
+    slot: 45
+    material: ARROW
+    name: "&eНазад"
+  category:
+    slot: 46
+    material: BOOK
+    name: "&eКатегория: &f%category%"
+  search:
+    slot: 47
+    material: COMPASS
+    name: "&eПоиск"
+  sort:
+    slot: 48
+    material: HOPPER
+    name: "&eСортировка: &f%sort%"
+  mine:
+    slot: 49
+    material: CHEST
+    name: "&eМои лоты"
+  expired:
+    slot: 50
+    material: CLOCK
+    name: "&eПросроченные"
+  close:
+    slot: 51
+    material: BARRIER
+    name: "&cЗакрыть"
+  history:
+    slot: 52
+    material: WRITTEN_BOOK
+    name: "&eИстория"
+  back:
+    slot: 52
+    material: ARROW
+    name: "&eНазад"
+  next:
+    slot: 53
+    material: ARROW
+    name: "&eВперёд"
+  confirm:
+    slot: 11
+    material: LIME_CONCRETE
+    name: "&aКупить за %price%"
+  cancel:
+    slot: 15
+    material: RED_CONCRETE
+    name: "&cОтмена"
+  sell-confirm:
+    slot: 22
+    material: LIME_CONCRETE
+    name: "&aВыставить"
+  sell-cancel:
+    slot: 23
+    material: RED_CONCRETE
+    name: "&cОтмена"
+
+filler: GRAY_STAINED_GLASS_PANE
+
+confirm:
+  title: "&8Подтверждение покупки"
+  rows: 3
+  lore:
+    - "&7Товар: &f%item%"
+    - "&7Продавец: &f%seller%"
+    - "&7Цена: &6%price%"
+    - ""
+    - "&7Нажмите &aКупить&7, чтобы списать средства."
+
+history:
+  title: "&8История &7— &f%page%&7/&f%pages%"
+  lore:
+    - "&7Роль: &f%role%"
+    - "&7Предмет: &f%item% &7x&f%amount%"
+    - "&7Сумма: &6%price%"
+    - "&7Налог: &f%tax%"
+    - "&7Контрагент: &f%counterparty%"
+    - "&7Лот: &f#%id%"
+    - ""
+    - "&8%date%"
+
+sell:
+  title: "&8Выставить предмет за %price%"
+  rows: 3
+
